@@ -1,0 +1,35 @@
+name: Homebrew Tap
+on: [push, pull_request]
+
+jobs:
+
+  tap:
+    name: Tap
+    runs-on: macos-latest
+
+    steps:
+
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # See https://brew.sh
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      # https://github.com/marketplace/actions/cache
+      - name: Cache Bundler RubyGems
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - name: Build
+        run: |
+          # - brew audit ./Formula/*.rb
+          brew install -v ./Formula/*.rb
+          brew test ./Formula/*.rb
+
+# https://gist.github.com/maelvls/068af21911c7debc4655cdaa41bbf092
