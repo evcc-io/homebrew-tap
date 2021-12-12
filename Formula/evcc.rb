@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.72"
+  version "0.73"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.72/evcc_0.72_macOS_all.tar.gz"
-    sha256 "15abce7a12343e92a6fb4c44d5f91877062e0ffb6070f483848bb8c7508dde8f"
+    url "https://github.com/evcc-io/evcc/releases/download/0.73/evcc_0.73_macOS_all.tar.gz"
+    sha256 "1f52f0f40109ec794b99237c36f0fdd679583dd52b62818635efc9b723f42c4f"
 
     def install
       bin.install "evcc"
@@ -19,24 +19,24 @@ class Evcc < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.72/evcc_0.72_linux_arm64.tar.gz"
-      sha256 "93b1dbf0faadea6894a0d9302528fa2664ab3102a66ea77972581f430d28f15a"
-
-      def install
-        bin.install "evcc"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.72/evcc_0.72_linux_armv6.tar.gz"
-      sha256 "f021ae805ab5c037b24843527084750be22ddeee6f78515a69fd47de3235c4fd"
+      url "https://github.com/evcc-io/evcc/releases/download/0.73/evcc_0.73_linux_arm64.tar.gz"
+      sha256 "7df5f8a9cf2e600765b094fd6abdd31bfd625e79c7dafb01c391c181dbb550d0"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.72/evcc_0.72_linux_amd64.tar.gz"
-      sha256 "e57f1c188c4379088521f4de8b53cfd42cc2998b18b62bfb001566f040746c04"
+      url "https://github.com/evcc-io/evcc/releases/download/0.73/evcc_0.73_linux_amd64.tar.gz"
+      sha256 "0972098b28f321e03bc4f57670db8b0203bddedbbbc48107108d96672854e1ad"
+
+      def install
+        bin.install "evcc"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.73/evcc_0.73_linux_armv6.tar.gz"
+      sha256 "d28ba17ed981fbaef998c2b35a6a31afece2b880b4ee97500f2b51c1803d35af"
 
       def install
         bin.install "evcc"
@@ -56,11 +56,15 @@ class Evcc < Formula
     <key>Program</key>
     <string>#{bin}/evcc</string>
     <key>WorkingDirectory</key>
-    <string>#{HOMEBREW_PREFIX}</string>
+    <string>#{var}</string>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
+    <key>StandardOutPath</key>
+    <string>#{var}/log/evcc.log</string>
+    <key>StandardErrorPath</key>
+    <string>#{var}/log/evcc.log</string>
   </dict>
 </plist>
   EOS
