@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.82"
+  version "0.83"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.82/evcc_0.82_macOS_all.tar.gz"
-    sha256 "bc1e400489aa120aa556af6d4f38f42e11de87e0563abbbf1f8c710672c2c016"
+    url "https://github.com/evcc-io/evcc/releases/download/0.83/evcc_0.83_macOS_all.tar.gz"
+    sha256 "81d00f0650966837b52536ba08ce68566116f55a41c66f37761dadc00df985a6"
 
     def install
       bin.install "evcc"
@@ -18,25 +18,25 @@ class Evcc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.82/evcc_0.82_linux_armv6.tar.gz"
-      sha256 "3247f884b6932d05bc9e990f520cab7d4395e99f18b78201cb95e8e0f256962d"
+    if Hardware::CPU.intel?
+      url "https://github.com/evcc-io/evcc/releases/download/0.83/evcc_0.83_linux_amd64.tar.gz"
+      sha256 "a0461596689b7db50ecc9f95bc85349991e0af43fe9baee77d812c7c68e19944"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.82/evcc_0.82_linux_arm64.tar.gz"
-      sha256 "0c8b12ef06ad4e0596670f4228c942b2289f2c111d28b1259802edcc34abf30d"
+      url "https://github.com/evcc-io/evcc/releases/download/0.83/evcc_0.83_linux_arm64.tar.gz"
+      sha256 "c52440a183e29a9950a6a4ab2eadb0a8edafdfc0caf612dbf7f1eca624a5cedc"
 
       def install
         bin.install "evcc"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.82/evcc_0.82_linux_amd64.tar.gz"
-      sha256 "1219e3cab0239bd8abaee7d092311266a9213f0612c10b0df71df8c9183bb9d2"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.83/evcc_0.83_linux_armv6.tar.gz"
+      sha256 "6db028a478b7eb823aaeb8f5f94f5da9dc547d347cb9909a4dbfa7a7c7c3cf0b"
 
       def install
         bin.install "evcc"
@@ -67,6 +67,7 @@ class Evcc < Formula
     <string>#{var}/log/evcc.log</string>
   </dict>
 </plist>
+
   EOS
   end
 
