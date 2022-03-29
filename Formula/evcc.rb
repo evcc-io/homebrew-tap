@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.87"
+  version "0.88"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.87/evcc_0.87_macOS_all.tar.gz"
-    sha256 "b14e9b952b28c5a3fd0ba92ed05bf604adc47c60e23ad3bf0617b65a1d992d81"
+    url "https://github.com/evcc-io/evcc/releases/download/0.88/evcc_0.88_macOS_all.tar.gz"
+    sha256 "af6093051375c8c907f6ce6b022027eecc2c8c09c35b6322249fbb8904ce6b9c"
 
     def install
       bin.install "evcc"
@@ -18,25 +18,25 @@ class Evcc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.87/evcc_0.87_linux_amd64.tar.gz"
-      sha256 "e784b901b40fe1389c2a610aceb09bac6d2c78acad15f057604febb176c7e339"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.88/evcc_0.88_linux_armv6.tar.gz"
+      sha256 "b6a63a9cc11e6777ef58dda7208f26f3988568ed1daa4737cef763f3974b897c"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.87/evcc_0.87_linux_arm64.tar.gz"
-      sha256 "d20f02e6c12e6d9ef8ba57cd5a6a4563004edc18a99ecdf388beeb4278b7b3ae"
+      url "https://github.com/evcc-io/evcc/releases/download/0.88/evcc_0.88_linux_arm64.tar.gz"
+      sha256 "7e455ae63ef1dd3903edda45204d4c8f7045098b1fa3672e52a2124f23fb31af"
 
       def install
         bin.install "evcc"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.87/evcc_0.87_linux_armv6.tar.gz"
-      sha256 "65d18658789814aba1583742c7f3b99dcce92f0139c30d2b2ff8670ad7f6b6ef"
+    if Hardware::CPU.intel?
+      url "https://github.com/evcc-io/evcc/releases/download/0.88/evcc_0.88_linux_amd64.tar.gz"
+      sha256 "334718bb34fac4a81ea818366fd3e244db8dcd612d34621fa99283a417e16f27"
 
       def install
         bin.install "evcc"
