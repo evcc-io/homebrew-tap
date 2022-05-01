@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.90"
+  version "0.91"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.90/evcc_0.90_macOS_all.tar.gz"
-    sha256 "d61e2f91101c678c5ea0854891e87588ec1a8673bf389dad746ca1e420516f09"
+    url "https://github.com/evcc-io/evcc/releases/download/0.91/evcc_0.91_macOS_all.tar.gz"
+    sha256 "b00b152c45d8c1b5622f9188e6fca7f303790ab701c6c7556b2a0106bcb338bd"
 
     def install
       bin.install "evcc"
@@ -19,24 +19,24 @@ class Evcc < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.90/evcc_0.90_linux_amd64.tar.gz"
-      sha256 "f3a228fe6a8560b65b14823831a2c203d1edfa06db18c6bff87ffe1ade2fe7ae"
+      url "https://github.com/evcc-io/evcc/releases/download/0.91/evcc_0.91_linux_amd64.tar.gz"
+      sha256 "8cbf0c5cfdf0f391a7490804e36dc029b143d1437041a260009664450eedf7c2"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.90/evcc_0.90_linux_arm64.tar.gz"
-      sha256 "e27e73cfba9e70f4c12d9b7143d01b0d2f70eced7275b330671e116ac281f55f"
+      url "https://github.com/evcc-io/evcc/releases/download/0.91/evcc_0.91_linux_arm64.tar.gz"
+      sha256 "eaf899a1f1f729ea22f47895107205f057376dd88c6c54cf3d9c044140899dd1"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.90/evcc_0.90_linux_armv6.tar.gz"
-      sha256 "857005b564b94546e8d494ee5f4747c53edf9cc03072107415b5bb29ab55a0be"
+      url "https://github.com/evcc-io/evcc/releases/download/0.91/evcc_0.91_linux_armv6.tar.gz"
+      sha256 "305eea52e62a3309a2497a853286b185dfa8ca5c8b8d51b00a6f7718c5613ec2"
 
       def install
         bin.install "evcc"
