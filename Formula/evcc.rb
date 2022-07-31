@@ -10,7 +10,7 @@ class Evcc < Formula
 
   on_macos do
     url "https://github.com/evcc-io/evcc/releases/download/0.98/evcc_0.98_macOS_all.tar.gz"
-    sha256 "b8f3f271d666ae936fe8c815d50416f2448118f0a81e000c5d2e8278ee8f644f"
+    sha256 "1f4d0b5f8839f788e2ba24147f70944e1ebf8a595815aca58ee874c6f3b105be"
 
     def install
       bin.install "evcc"
@@ -20,7 +20,7 @@ class Evcc < Formula
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "https://github.com/evcc-io/evcc/releases/download/0.98/evcc_0.98_linux_armv6.tar.gz"
-      sha256 "7ba193e98381ed671944b8db845d86b246ae0d92d0e9d6fa210cdcfdc0e5e916"
+      sha256 "2a1f2aa5412f71d18f3731770d300a83f9942710b98665293046c5ce7673b81c"
 
       def install
         bin.install "evcc"
@@ -28,7 +28,7 @@ class Evcc < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/evcc-io/evcc/releases/download/0.98/evcc_0.98_linux_arm64.tar.gz"
-      sha256 "843d08bc46425f7167ccb1ffb5be62560d4087352c75e244c71c77bfd79a15ff"
+      sha256 "efab4e149c646b32474a5cf0f4b755c1b22f24630cdb7c764e8d4928fd3323fc"
 
       def install
         bin.install "evcc"
@@ -36,7 +36,7 @@ class Evcc < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/evcc-io/evcc/releases/download/0.98/evcc_0.98_linux_amd64.tar.gz"
-      sha256 "98b8d8e8e5f580512eed5c70b149d80dfe24394dd796e17636bf604849fc97a9"
+      sha256 "1162c2f5b5a039fb9cf8768ca86a61bbe958a1a43c57005cea8f6eb2f50a1385"
 
       def install
         bin.install "evcc"
