@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.100"
+  version "0.101"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.100/evcc_0.100_macOS_all.tar.gz"
-    sha256 "5516e03ce3c1e8096186f3d20bf6482347dac04c5b3d073e783b921808d50da1"
+    url "https://github.com/evcc-io/evcc/releases/download/0.101/evcc_0.101_macOS_all.tar.gz"
+    sha256 "9a271bb2b4b37fd8b910328ea4e33fb73bdaf935cabb442890270e2fa54a3e70"
 
     def install
       bin.install "evcc"
@@ -18,25 +18,25 @@ class Evcc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.100/evcc_0.100_linux_armv6.tar.gz"
-      sha256 "766f4e63b89edbbf748e11dffdf665ceb07cb5e5991c660d43ed2f224c4c706d"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.101/evcc_0.101_linux_arm64.tar.gz"
+      sha256 "1904c3338135b529a4b693bd17f0ca970a7bedccf4c74f836d3e547b68518b03"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.100/evcc_0.100_linux_amd64.tar.gz"
-      sha256 "5b6ee21d3e71984fdd2b40cf414d1c60ddd1441cba318cfc4ff8ba238f6f4f15"
+      url "https://github.com/evcc-io/evcc/releases/download/0.101/evcc_0.101_linux_amd64.tar.gz"
+      sha256 "cf8e660a3d5370c200510da377785135b196bf6f0e3a3090d94a70346180e74a"
 
       def install
         bin.install "evcc"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.100/evcc_0.100_linux_arm64.tar.gz"
-      sha256 "77dca52d96be828cb21498e101da0cbe41cb03d2cad6257b8be9f4097594eea8"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.101/evcc_0.101_linux_armv6.tar.gz"
+      sha256 "457f3b4c10597e95048515fdf9d524cab966abfc78659cb567551414e1c8ea1b"
 
       def install
         bin.install "evcc"
@@ -44,10 +44,11 @@ class Evcc < Formula
     end
   end
 
-  plist_options :startup => false
+  plist_options startup: false
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
@@ -68,7 +69,7 @@ class Evcc < Formula
   </dict>
 </plist>
 
-  EOS
+    EOS
   end
 
   test do
