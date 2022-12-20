@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.109.2"
+  version "0.110.0"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.109.2/evcc_0.109.2_macOS_all.tar.gz"
-    sha256 "582e7ce71c542448bd420d64325c113db7b088a5a26f5c5636f6bc54b8ded483"
+    url "https://github.com/evcc-io/evcc/releases/download/0.110.0/evcc_0.110.0_macOS_all.tar.gz"
+    sha256 "7bb749021c2a1270d2c05873d1f0c2493fdb010ba6052b4d9a7e7c4c52bcd483"
 
     def install
       bin.install "evcc"
@@ -18,25 +18,25 @@ class Evcc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.109.2/evcc_0.109.2_linux_arm64.tar.gz"
-      sha256 "669afd8954564ac012240d743144aeb70db14396be012e5ea857412231a94c25"
-
-      def install
-        bin.install "evcc"
-      end
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.109.2/evcc_0.109.2_linux_amd64.tar.gz"
-      sha256 "8640694f3173770e51c447a13af5d8e6d5a93120aa7ee1d8d2a4ac78a98121e9"
+      url "https://github.com/evcc-io/evcc/releases/download/0.110.0/evcc_0.110.0_linux_amd64.tar.gz"
+      sha256 "bb07bca926026076161fc48292ebf4c33137eac68f1c68dc819693afa5a77596"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.109.2/evcc_0.109.2_linux_armv6.tar.gz"
-      sha256 "470e6434f0844326524765f97c8788d3bc36e1ec97b4dffc370d71e080a7e7a2"
+      url "https://github.com/evcc-io/evcc/releases/download/0.110.0/evcc_0.110.0_linux_armv6.tar.gz"
+      sha256 "75fa25128724cdd27a344622ab824f46dcc37631790943c6914417f495bd7d58"
+
+      def install
+        bin.install "evcc"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/evcc-io/evcc/releases/download/0.110.0/evcc_0.110.0_linux_arm64.tar.gz"
+      sha256 "042f8c7efdb4e1b2dc24ea54e5e60d0f07690b304fbdead52795aeaa84146fa7"
 
       def install
         bin.install "evcc"
