@@ -44,7 +44,7 @@ class Evcc < Formula
     end
   end
 
-  plist_options startup: false
+  service.require_root startup: false
 
   def plist
     <<~EOS
