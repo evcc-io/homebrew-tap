@@ -44,32 +44,12 @@ class Evcc < Formula
     end
   end
 
-  service.require_root startup: false
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>Label</key>
-    <string>#{plist_name}</string>
-    <key>Program</key>
-    <string>#{bin}/evcc</string>
-    <key>WorkingDirectory</key>
-    <string>#{var}</string>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-    <key>StandardOutPath</key>
-    <string>#{var}/log/evcc.log</string>
-    <key>StandardErrorPath</key>
-    <string>#{var}/log/evcc.log</string>
-  </dict>
-</plist>
-
-    EOS
+  service do
+    run [opt_bin/"evcc"]
+    working_dir HOMEBREW_PREFIX
+    keep_alive true
+    log_path var/"log/evcc.log"
+    error_log_path var/"log/evcc.log"
   end
 
   test do
