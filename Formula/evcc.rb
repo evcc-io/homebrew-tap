@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.118.4"
+  version "0.118.5"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.118.4/evcc_0.118.4_macOS-all.tar.gz"
-    sha256 "a612411493939dc8daee1edbb656912c11e7eab0349d7c24637821d408eb9529"
+    url "https://github.com/evcc-io/evcc/releases/download/0.118.5/evcc_0.118.5_macOS-all.tar.gz"
+    sha256 "b1511e28162144e4ddd218124c0a7d75152d4640d33c767375275f693b8dd976"
 
     def install
       bin.install "evcc"
@@ -19,24 +19,24 @@ class Evcc < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.118.4/evcc_0.118.4_linux-armv6.tar.gz"
-      sha256 "bbaee4a759e269ea3a8c2a39ca8a38cc02dde6bf70e5c62a8888e4ae824350f8"
+      url "https://github.com/evcc-io/evcc/releases/download/0.118.5/evcc_0.118.5_linux-armv6.tar.gz"
+      sha256 "3561b31f480ccbaca6f1d9b0c27508b6c17187656b1b9214846a005e67975796"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/evcc-io/evcc/releases/download/0.118.4/evcc_0.118.4_linux-amd64.tar.gz"
-      sha256 "9883fe54fc25a969ebac864dad21e4252275ff2b660e32f7915678a9022f52b3"
+      url "https://github.com/evcc-io/evcc/releases/download/0.118.5/evcc_0.118.5_linux-amd64.tar.gz"
+      sha256 "e8a40f60630209ce563a49de7ade14cff2baa218f9944496958079eac540c08a"
 
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.118.4/evcc_0.118.4_linux-arm64.tar.gz"
-      sha256 "ede39f1ec495c89118fd799de6208c734bb46f6a43443abcb319a2627ad93c03"
+      url "https://github.com/evcc-io/evcc/releases/download/0.118.5/evcc_0.118.5_linux-arm64.tar.gz"
+      sha256 "eefa8fe54e7f82e26589c78a851f9eb455cce5d6e36a04e20f33fde756a26198"
 
       def install
         bin.install "evcc"
