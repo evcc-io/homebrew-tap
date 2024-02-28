@@ -2,13 +2,11 @@ name: Homebrew Tap
 on: [push, pull_request]
 
 jobs:
-
   tap:
     name: Tap
     runs-on: macos-latest
 
     steps:
-
       # https://github.com/marketplace/actions/checkout
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,7 +27,7 @@ jobs:
       - name: Build
         run: |
           # - brew audit ./Formula/*.rb
-          brew install -v ./Formula/*.rb
-          brew test ./Formula/*.rb
+          brew install --build-bottle -v evcc
+          brew test evcc
 
 # https://gist.github.com/maelvls/068af21911c7debc4655cdaa41bbf092
