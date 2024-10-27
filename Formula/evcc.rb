@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.131.1"
+  version "0.131.2"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.131.1/evcc_0.131.1_macOS-all.tar.gz"
-    sha256 "d7f4adf86e37303c6b4a1bd9f89c2bd485b6daa46dd32c761bc5f716f39f5284"
+    url "https://github.com/evcc-io/evcc/releases/download/0.131.2/evcc_0.131.2_macOS-all.tar.gz"
+    sha256 "507b501821e75f2c588d151ab1ba0f30d0cd5ee319619bd6a3e2dd8c8d44362c"
 
     def install
       bin.install "evcc"
@@ -20,8 +20,8 @@ class Evcc < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evcc-io/evcc/releases/download/0.131.1/evcc_0.131.1_linux-amd64.tar.gz"
-        sha256 "b141fb32cf40696c66dabf2f069343199013d827f603b869608242cae49b1603"
+        url "https://github.com/evcc-io/evcc/releases/download/0.131.2/evcc_0.131.2_linux-amd64.tar.gz"
+        sha256 "3e20c3b6aa18423ac5d5e749954125dff00fddee2bb7c85a761de0138dd7c414"
 
         def install
           bin.install "evcc"
@@ -30,8 +30,8 @@ class Evcc < Formula
     end
     on_arm do
       if !Hardware::CPU.is_64_bit?
-        url "https://github.com/evcc-io/evcc/releases/download/0.131.1/evcc_0.131.1_linux-armv6.tar.gz"
-        sha256 "edc78cbe8b57a1cdeea3fe070dfe5251236b0686e6e1f735162528a6c47fcb64"
+        url "https://github.com/evcc-io/evcc/releases/download/0.131.2/evcc_0.131.2_linux-armv6.tar.gz"
+        sha256 "f7a54ea870f500d321fb30a83c6d60ee4581302128fb638aec249b43b57636a8"
 
         def install
           bin.install "evcc"
@@ -40,8 +40,8 @@ class Evcc < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/evcc-io/evcc/releases/download/0.131.1/evcc_0.131.1_linux-arm64.tar.gz"
-        sha256 "6bc236a7758250d645b20abf2d0741167c392b72b040cafce835af25377c14d5"
+        url "https://github.com/evcc-io/evcc/releases/download/0.131.2/evcc_0.131.2_linux-arm64.tar.gz"
+        sha256 "fcb102ac0e33894ccae846e51efe51893cbc95f71cb4359f70bff49ca7ad25d5"
 
         def install
           bin.install "evcc"
