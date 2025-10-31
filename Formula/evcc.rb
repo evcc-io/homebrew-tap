@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.209.4"
+  version "0.209.5"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.209.4/evcc_0.209.4_macOS-all.tar.gz"
-    sha256 "ab34aaefde0198357cd330038c2278bdfdf87a636f6ad45c7676de36ea73d7db"
+    url "https://github.com/evcc-io/evcc/releases/download/0.209.5/evcc_0.209.5_macOS-all.tar.gz"
+    sha256 "c9f595efabf110051686e81f85b4aa0dc728e1e74d86e55a49f74a8082256866"
 
     def install
       bin.install "evcc"
@@ -19,22 +19,22 @@ class Evcc < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.209.4/evcc_0.209.4_linux-amd64.tar.gz"
-      sha256 "f40b3bca6f41ecda1911341052e2522dcf6af3b79487d66a5f07aa5a1c756ac2"
+      url "https://github.com/evcc-io/evcc/releases/download/0.209.5/evcc_0.209.5_linux-amd64.tar.gz"
+      sha256 "4307f142113b2597abb0712e213c7bbf1e5fa4b623961113ce40ff7500d98b55"
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.209.4/evcc_0.209.4_linux-armv6.tar.gz"
-      sha256 "db33fbd02f4b405dfd861a198429e7ede0718699142b64be886cee3f631c1aa1"
+      url "https://github.com/evcc-io/evcc/releases/download/0.209.5/evcc_0.209.5_linux-armv6.tar.gz"
+      sha256 "4710393f0f5e76958ec2d30a5b3d52c5eed4c6da6641e7b50dcb54241a57a2cb"
       def install
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.209.4/evcc_0.209.4_linux-arm64.tar.gz"
-      sha256 "42e281e3d0f00b8dc716b22d9ee1db8d74cc7bf09519922a618bca6235891728"
+      url "https://github.com/evcc-io/evcc/releases/download/0.209.5/evcc_0.209.5_linux-arm64.tar.gz"
+      sha256 "ac29fd6d8b62bf4ef0b9ac5430bf7bb05780bee9d4701f106c813fa397856081"
       def install
         bin.install "evcc"
       end
