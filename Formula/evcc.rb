@@ -5,12 +5,12 @@
 class Evcc < Formula
   desc "Sonne tanken ☀️🚘"
   homepage "https://evcc.io"
-  version "0.313.2"
+  version "0.313.3"
   license "MIT"
 
   on_macos do
-    url "https://github.com/evcc-io/evcc/releases/download/0.313.2/evcc_0.313.2_macOS-all.tar.gz"
-    sha256 "c9ebb9bf149b074060714011200f9b235ba0dd110084adbc0b18af26463ecf93"
+    url "https://github.com/evcc-io/evcc/releases/download/0.313.3/evcc_0.313.3_macOS-all.tar.gz"
+    sha256 "57cbbe0548fbfc7371ee0b38e69e0e47cc938828f48fae2a39aed7894ac0212b"
 
     define_method(:install) do
       bin.install "evcc"
@@ -19,22 +19,22 @@ class Evcc < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.313.2/evcc_0.313.2_linux-amd64.tar.gz"
-      sha256 "fce7f1c00a28ab2ba38d60f5f35a33829e10ab00ab4b0498c791d82e6f4d66fb"
+      url "https://github.com/evcc-io/evcc/releases/download/0.313.3/evcc_0.313.3_linux-amd64.tar.gz"
+      sha256 "c6228fed3632ce00cb6d9b76f3e0b931be448235dfee6f6a9c7b92fd4e4aed45"
       define_method(:install) do
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.313.2/evcc_0.313.2_linux-armv6.tar.gz"
-      sha256 "7d479818d26d6925d28b3d8352b0237be9d4a622a92b70c3bcbe8cfa2a3aa17a"
+      url "https://github.com/evcc-io/evcc/releases/download/0.313.3/evcc_0.313.3_linux-armv6.tar.gz"
+      sha256 "889337e159dbaafc460b6fed2fa82e6093430dfdb90c8b407f5e549847158c0b"
       define_method(:install) do
         bin.install "evcc"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/evcc-io/evcc/releases/download/0.313.2/evcc_0.313.2_linux-arm64.tar.gz"
-      sha256 "fd894672c576d714abd732b755ce80fcd5d24441be5d8cdcb420551efb59c9ed"
+      url "https://github.com/evcc-io/evcc/releases/download/0.313.3/evcc_0.313.3_linux-arm64.tar.gz"
+      sha256 "9fc26153b9af35d713e098f363985bfa3b7cab4c6505bf17087a8d38e47ecba1"
       define_method(:install) do
         bin.install "evcc"
       end
